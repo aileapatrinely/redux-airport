@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 class Form extends Component {
   state = {
     newAirline: '',
+    numberPlanes: '',
   };
   handleClick = () => {
     this.props.dispatch({
       type: 'BUTTON_CLICK',
-      payload: { airline: this.state.newAirline },
+      payload: {
+        airline: this.state.newAirline,
+        planes: this.state.numberPlanes,
+      },
     });
   };
 
@@ -18,10 +22,17 @@ class Form extends Component {
     });
   };
 
+  handlePlanes = (event) => {
+    this.setState({
+      numberPlanes: event.target.value,
+    });
+  };
+
   render() {
     return (
       <div>
         <input placeholder="Airline Name" onChange={this.handleChange} />
+        <input placeholder="Number of Planes" onChange={this.handlePlanes} />
         <button onClick={this.handleClick}>Add Airline</button>
       </div>
     );

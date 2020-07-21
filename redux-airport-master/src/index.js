@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import Form from './components/Form/Form';
 
 const addAirline = (state = ['Potato'], action) => {
   if (action.type === 'BUTTON_CLICK') {
@@ -12,9 +11,17 @@ const addAirline = (state = ['Potato'], action) => {
   return state;
 };
 
+const addPlanes = (state = ['0'], action) => {
+  if (action.type === 'BUTTON_CLICK') {
+    return [...state, action.payload.planes];
+  }
+  return state;
+};
+
 const storeInstance = createStore(
   combineReducers({
     addAirline,
+    addPlanes,
   })
 );
 
