@@ -6,11 +6,13 @@ import { Provider } from 'react-redux';
 
 const addAirline = (state = [{ airline: 'Potato', planes: '2' }], action) => {
   if (action.type === 'BUTTON_CLICK') {
-    return {
-      ...state,
-      airline: [...action.payload.airline],
-      planes: [...action.payload.planes],
-    };
+    return [
+      {
+        ...state,
+        airline: action.payload.airline,
+        planes: action.payload.planes,
+      },
+    ];
   }
   return state;
 };
