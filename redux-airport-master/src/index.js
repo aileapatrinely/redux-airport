@@ -4,9 +4,17 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const storeInstance = createStore(() => {
-  console.log('Reducers here.');
-});
+const addAirline = (state, action) => {
+  if (action.type === 'BUTTON_CLICK') {
+    return state;
+  }
+};
+
+const storeInstance = createStore(
+  combineReducers({
+    addAirline,
+  })
+);
 
 ReactDOM.render(
   <Provider store={storeInstance}>
