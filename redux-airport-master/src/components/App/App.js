@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class App extends Component {
-  render() {
-    handleClick = (event) => {
-      this.props.dispatch({
-        type: 'BUTTON_CLICK',
-        payload: event.target.value,
-      });
-    };
+  handleClick = (event) => {
+    this.props.dispatch({
+      type: 'BUTTON_CLICK',
+      payload: event.target.value,
+    });
+  };
 
+  render() {
     return (
       <div>
         <h1>Redux Airport</h1>
@@ -24,4 +24,5 @@ class App extends Component {
 const mapStoreToProps = (store) => {
   return { store };
 };
-export default connect(mapStoretoProps)(App);
+
+export default connect(mapStoreToProps)(App);

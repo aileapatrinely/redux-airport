@@ -4,10 +4,13 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const addAirline = (state, action) => {
+const defaultState = [];
+
+const addAirline = (state = defaultState, action) => {
   if (action.type === 'BUTTON_CLICK') {
-    return state;
+    return [...this.state, this.action.payload];
   }
+  return state;
 };
 
 const storeInstance = createStore(
