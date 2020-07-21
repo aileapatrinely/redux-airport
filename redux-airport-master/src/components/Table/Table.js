@@ -7,10 +7,7 @@ class Table extends Component {
       <table>
         <tbody>
           {this.props.store.addAirline.map((item, index) => {
-            return <td key={index}>{item}</td>;
-          })}
-          {this.props.store.addPlanes.map((item, index) => {
-            return <td key={index}>{item}</td>;
+            return <td key={index}>{item.airline}</td>;
           })}
         </tbody>
       </table>
