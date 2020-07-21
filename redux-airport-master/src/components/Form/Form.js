@@ -31,8 +31,16 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <input placeholder="Airline Name" onChange={this.handleChange} />
-        <input placeholder="Number of Planes" onChange={this.handlePlanes} />
+        <input
+          placeholder="Airline Name"
+          onChange={this.handleChange}
+          value={this.state.newAirline}
+        />
+        <input
+          placeholder="Number of Planes"
+          onChange={this.handlePlanes}
+          value={this.state.numberPlanes}
+        />
         <button onClick={this.handleClick}>Add Airline</button>
       </div>
     );
