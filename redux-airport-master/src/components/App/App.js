@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Form from '../Form/Form';
+import Table from '../Table/Table';
 
 class App extends Component {
   render() {
@@ -8,18 +9,10 @@ class App extends Component {
       <div>
         <h1>Redux Airport</h1>
         <Form />
-        <table>
-          {this.props.store.addAirline.map((item, index) => {
-            return <p key={index}>{item}</p>;
-          })}
-        </table>
+        <Table />
       </div>
     );
   }
 }
 
-const mapStoreToProps = (store) => {
-  return { store };
-};
-
-export default connect(mapStoreToProps)(App);
+export default connect()(App);
