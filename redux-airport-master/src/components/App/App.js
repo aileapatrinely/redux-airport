@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class App extends Component {
-  handleClick = (event) => {
+  state = {
+    newAirline: '',
+  };
+  handleClick = () => {
     this.props.dispatch({
       type: 'BUTTON_CLICK',
-      payload: event.target.value,
+      payload: { airline: this.state.newAirline },
+    });
+  };
+
+  handleChange = (event) => {
+    this.setState({
+      newAirline: event.target.value,
     });
   };
 
@@ -13,9 +22,13 @@ class App extends Component {
     return (
       <div>
         <h1>Redux Airport</h1>
-        <input placeholder="Airline Name" />
+        <input placeholder="Airline Name" onChange={this.handleChange} />
         <button onClick={this.handleClick}>Add Airline</button>
-        <table>{/* Airlines should be listed here */}</table>
+        <table>
+          {this.props.store.addAirline.map((item, index) => {
+            return <p key={index}>{item}</p>;
+          })}
+        </table>
       </div>
     );
   }
