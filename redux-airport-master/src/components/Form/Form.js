@@ -17,15 +17,11 @@ class Form extends Component {
   };
 
   handleChange = (event) => {
-    this.setState({
-      newAirline: event.target.value,
-    });
+    this.setState({ ...this.state, newAirline: event.target.value });
   };
 
   handlePlanes = (event) => {
-    this.setState({
-      numberPlanes: event.target.value,
-    });
+    this.setState({ ...this.state, numberPlanes: event.target.value });
   };
 
   render() {
