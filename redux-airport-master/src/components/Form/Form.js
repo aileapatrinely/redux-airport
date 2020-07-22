@@ -14,6 +14,7 @@ class Form extends Component {
         planes: this.state.numberPlanes,
       },
     });
+    this.setState({ newAirline: '', numberPlanes: '' });
   };
 
   handleChange = (event) => {
