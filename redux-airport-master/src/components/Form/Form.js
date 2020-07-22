@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class Form extends Component {
   state = {
@@ -28,17 +30,25 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <input
+        <TextField
+          id="filled-basic"
+          label="Filled"
+          variant="filled"
           placeholder="Airline Name"
           onChange={this.handleChange}
           value={this.state.newAirline}
         />
-        <input
+        <TextField
+          id="filled-basic"
+          label="Filled"
+          variant="filled"
           placeholder="Number of Planes"
           onChange={this.handlePlanes}
           value={this.state.numberPlanes}
         />
-        <button onClick={this.handleClick}>Add Airline</button>
+        <Button variant="contained" color="primary" onClick={this.handleClick}>
+          Add Airline
+        </Button>
       </div>
     );
   }
